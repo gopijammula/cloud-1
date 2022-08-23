@@ -7,3 +7,7 @@ put "file location" - To uploda a file from our system to remote virtual machine
 --------   Git Commands   ----------
 git clone "URL"
 
+git add .
+git init -b main
+git commit -m "Comments for added repository"
+git push origin
