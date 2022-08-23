@@ -1,0 +1,89 @@
+#creating Resource Group
+$resource_group_name = 'fromcli'
+$resource_group_location = 'centralus'
+$rsg = az group create -n $resource_group_name -l $resource_group_location
+
+#creating Virtual network without subnets
+
+$primaryvirtualnetworkname = 'primaryvnet'
+
+$primaryvirtualnetworkaddress = '10.100.0.0/16'
+
+$primaryvnet = az network vnet create -n $primaryvirtualnetworkname -g $resource_group_name --address-prefixes $primaryvirtualnetworkaddress -l $resource_group_location 
+
+# adding vnetsubnets to the vnet
+
+$app1 = 'app'
+$web1 = 'web'
+$cache1 = 'cache'
+$db1 = 'db'
+
+$db1_subnet_address1 = '10.100.0.0/24'
+$app1_subnet_address1 = '10.100.1.0/24'
+$chache1_subnet_address1 = '10.100.2.0/24'
+$web1_subnet_address1 = '10.100.3.0/24'
+
+# we cant create more than one subnet at a time
+$app_subnet1 = az network vnet subnet create --address-prefixes $app1_subnet_address1 --name $app1 --resource-group $resource_group_name --vnet-name $primaryvirtualnetworkname
+
+$web_subnet1 = az network vnet subnet create --address-prefixes $web1_subnet_address1 --name $web1 --resource-group $resource_group_name --vnet-name $primaryvirtualnetworkname
+
+$db_subnet1 = az network vnet subnet create --address-prefixes $db1_subnet_address1 --name $db1 --resource-group $resource_group_name --vnet-name $primaryvirtualnetworkname
+
+$cache_subnet1 = az network  vnet subnet create --address-prefixes $chache1_subnet_address1 --name $cache1 --resource-group $resource_group_name --vnet-name $primaryvirtualnetworkname
+
+
+#creating secondary network
+
+$secondaryvirtualnetworkname = 'secondaryvnet'
+
+$secondaryvirtualnetworkaddress = '10.101.0.0/16'
+
+$secondaryvnet = az network vnet create -n $secondaryvirtualnetworkname -g $resource_group_name --address-prefixes $secondaryvirtualnetworkaddress -l $resource_group_location 
+
+
+$app2 = 'app'
+$web2 = 'web'
+$cache2 = 'cache'
+$db2 = 'db'
+
+$db2_subnet_address1 = '10.101.0.0/24'
+$app2_subnet_address1 = '10.101.1.0/24'
+$chache2_subnet_address1 = '10.101.2.0/24'
+$web2_subnet_address1 = '10.101.3.0/24'
+
+# we cant create more than one subnet at a time
+$app_subnet2 = az network vnet subnet create --address-prefixes $app2_subnet_address1 --name $app2 --resource-group $resource_group_name --vnet-name $secondaryvirtualnetworkname
+
+$web_subnet2 = az network vnet subnet create --address-prefixes $web2_subnet_address1 --name $web2 --resource-group $resource_group_name --vnet-name $secondaryvirtualnetworkname
+
+$db_subnet2 = az network vnet subnet create --address-prefixes $db2_subnet_address1 --name $db2 --resource-group $resource_group_name --vnet-name $secondaryvirtualnetworkname
+
+$cache_subnet2 = az network vnet subnet create --address-prefixes $chache2_subnet_address1 --name $cache2 --resource-group $resource_group_name --vnet-name $secondaryvirtualnetworkname
+
+# Creating NSGs
+$primary_nsg_name = 'primary-NSG'
+
+$primarynsg = az network nsg create --name $primary_nsg_name --resource-group $resource_group_name --location $resource_group_location
+
+az network vnet subnet update -g $resource_group_name -n $app1 --vnet-name $primaryvirtualnetworkname --network-security-group $primary_nsg_name
+az network vnet subnet update -g $resource_group_name -n $db1 --vnet-name $primaryvirtualnetworkname --network-security-group $primary_nsg_name
+az network vnet subnet update -g $resource_group_name -n $cache1 --vnet-name $primaryvirtualnetworkname --network-security-group $primary_nsg_name
+
+$secondary_nsg_name = 'secondary-NSG'
+
+$secondarynsg = az network nsg create --name $secondary_nsg_name --resource-group $resource_group_name --location $resource_group_location
+
+az network vnet subnet update -g $resource_group_name -n $app2 --vnet-name $secondaryvirtualnetworkname --network-security-group $primary_nsg_name
+az network vnet subnet update -g $resource_group_name -n $db2 --vnet-name $secondaryvirtualnetworkname --network-security-group $primary_nsg_name
+az network vnet subnet update -g $resource_group_name -n $cache2 --vnet-name $secondaryvirtualnetworkname --network-security-group $primary_nsg_name
+
+
+# Creating primary to secondary peer connection
+$primarypeerconnection = 'primarytosecondary'
+az network vnet peering create -g $resource_group_name -n $primarypeerconnection --vnet-name $primaryvirtualnetworkname --remote-vnet $secondaryvirtualnetworkname
+
+# Creating secondary to primary peer connection
+
+$secondarypeerconnection = 'secondarytoprimary'
+az network vnet peering create -g $resource_group_name -n $secondarypeerconnection --vnet-name $secondaryvirtualnetworkname --remote-vnet $primaryvirtualnetworkname

@@ -1,0 +1,7 @@
+{
+    "name" : "Vinukonda",
+    "district" : "Palnadu",
+    "Area" : "Seethaiah Nagar",
+    "crops" : ["Mirchi" , "Rice" , "Sweet Corn"], 
+    "Spots" : ["Hill" , "Stupham" , "Highway Road"]
+}

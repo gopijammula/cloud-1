@@ -1,0 +1,19 @@
+---
+- name: Updating ubuntu packages and installing Apache2 server
+  become: yes
+  hosts: localhost
+  vars:
+  tasks: 
+    - name: Updating Ubuntu packages
+      ansible.builtin.apt:
+        name: apache2
+        update_cache: yes
+        state: present
+    - name: Allow everything and enable UFW
+      community.general.ufw:
+        state: enabled
+        policy: allow
+    - name: Make sure a service unit is running
+      ansible.builtin.systemd:
+        state: restarted
+        name: apache2

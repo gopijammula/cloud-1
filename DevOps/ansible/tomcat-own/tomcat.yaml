@@ -1,0 +1,69 @@
+---
+- name: Install tomcat 9 in Ubuntu
+  become: yes
+  hosts: appserver
+  vars:
+    
+  tasks:
+    - name: update the software
+      ansible.builtin.apt:
+        name: "{{ java_package_name }}"
+        update_cache: yes
+        state: present
+    - name: Add the user 'tomcat' with a specific uid and a primary group of 'admin'
+      ansible.builtin.user:
+        name: '{{tomcat_user}}'
+        create_home: yes
+        home: '{{tomcat_home_path}}'
+        shell: "{{ tomcat_shell }}"
+    - name: Download tomcat server
+      ansible.builtin.get_url:
+        url: '{{ tomcat_url }}'
+        dest: '{{ tomcat_download_location }}'
+    - name: Extracting the tomcat
+      ansible.builtin.unarchive:
+        src: '{{ tomcat_download_location }}'
+        dest: '{{ tomcat_home_path }}'
+        remote_src: yes
+    - name: Creating symbolic link
+      ansible.builtin.file:
+        src: '{{tomcat_home_path}}/apache-tomcat-9.0.65'
+        dest: '{{ tomcat_home_path}}/latest'
+        owner: '{{ tomcat_user }}'
+        group: '{{ tomcat_user }}'
+        state: link
+    - name: Changing the ownership of tomcat directory
+      ansible.builtin.file:
+        path: '{{ tomcat_home_path}}'
+        owner: '{{ tomcat_user }}'
+        recurse: yes
+        group: '{{ tomcat_user }}'
+        state: directory
+    - name: Give Execute permissions to shell files in tomcat's bin directory
+      ansible.builtin.file:
+        path: "{{ item }}"
+        mode: "+x"
+      with_fileglob:
+        - "{{ tomcat_home_path }}/latest/bin/*.sh"
+    - name: Copy a "sudoers" file on the remote machine for editing
+      ansible.builtin.copy:
+        src: tomcat.service.j2
+        dest: "{{ tomcat_service_file_location }}"
+    - name: reload daemon
+      ansible.builtin.systemd:
+        name: tomcat
+        daemon_reload: yes
+        enabled: yes
+        state: started
+    - name: Copy tomcat users file
+      ansible.builtin.copy:
+        src: tomcat-users.xml
+        dest: "{{ tomcat_user_file_location }}"
+    - name: Copy tomcat users file
+      ansible.builtin.copy:
+        src: manager-file.xml
+        dest: "{{ tomcat_manager_app_file_location }}"
+    - name: Copy tomcat users file
+      ansible.builtin.copy:
+        src: hostmanager-file.xml
+        dest: "{{ tomcat_hostmanager_app_file_location }}"

@@ -1,0 +1,9 @@
+sftp username@publicip - To connect sftp to the remote virtual machine
+put -r "folder location"  - To uploda a folder from our system to remote virtual machine
+put "file location" - To uploda a file from our system to remote virtual machine
+
+
+
+--------   Git Commands   ----------
+git clone "URL"
+

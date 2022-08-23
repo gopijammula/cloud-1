@@ -1,0 +1,7 @@
+
+---
+all:
+  children:
+    appserver:
+      hosts:
+        20.25.147.46:
