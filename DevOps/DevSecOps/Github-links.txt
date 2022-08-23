@@ -1,0 +1,7 @@
+https://github.com/apache/maven.git
+
+https://github.com/rubenlagus/TelegramBots.git
+
+https://github.com/spotify/dockerfile-maven.git
+
+https://github.com/bytedeco/javacpp-presets.git
