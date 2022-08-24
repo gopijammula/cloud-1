@@ -6,15 +6,3 @@ exit
 docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 sonarqube:latest
 sudo apt install maven -y
 
-
-
-
-
-sqp_79157d8585795d26c1c9b05dd0f06010c2669850
-
-gti clone "URL" to extract the git hub code
-
-mvn clean verify sonar:sonar \
-  -Dsonar.projectKey=Maven \
-  -Dsonar.host.url=http://20.168.105.68:9000 \
-  -Dsonar.login=sqp_79157d8585795d26c1c9b05dd0f06010c2669850

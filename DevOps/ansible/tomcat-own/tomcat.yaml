@@ -1,30 +1,41 @@
 ---
 - name: Install tomcat 9 in Ubuntu
   become: yes
-  hosts: appserver
-  vars:
-    
+  hosts: all
   tasks:
-    - name: update the software
-      ansible.builtin.apt:
+    - debug:
+        msg: "This playbook supports only on Centos and Ubuntu"
+    - name: Terminated Execution due to Unsuppoprted OS for Playbook
+      ansible.builtin.fail:
+        msg: Failed due to unsupported OS
+      when: 
+        - ansible_facts['distribution'] != "CentoS"
+        - ansible_facts['distribution'] != "Ubuntu"
+    - name: update the software and installing "{{ java_package_name }}"
+      ansible.builtin.package:
         name: "{{ java_package_name }}"
         update_cache: yes
         state: present
+    - debug: 
+        msg: "installing {{ java_package_name }}"
     - name: Add the user 'tomcat' with a specific uid and a primary group of 'admin'
       ansible.builtin.user:
         name: '{{tomcat_user}}'
         create_home: yes
         home: '{{tomcat_home_path}}'
         shell: "{{ tomcat_shell }}"
+    - debug:
+        msg: "creating an user {{ tomcat_user }} with home directory {{ tomcat_home_path }} ans shell {{ tomcat_shell }}"
+    - debug:
+        msg: "Downloading Tomcat Server from {{ tomcat_url }}"
     - name: Download tomcat server
       ansible.builtin.get_url:
         url: '{{ tomcat_url }}'
         dest: '{{ tomcat_download_location }}'
-    - name: Extracting the tomcat
-      ansible.builtin.unarchive:
-        src: '{{ tomcat_download_location }}'
-        dest: '{{ tomcat_home_path }}'
-        remote_src: yes
+      notify:
+      - Extracting the tomcat
+    - debug:
+        msg: "Extracting Tomcat to {{ tomcat_home_path }}"
     - name: Creating symbolic link
       ansible.builtin.file:
         src: '{{tomcat_home_path}}/apache-tomcat-9.0.65'
@@ -32,6 +43,8 @@
         owner: '{{ tomcat_user }}'
         group: '{{ tomcat_user }}'
         state: link
+    - debug:
+        msg: "Created Symbolic Link"
     - name: Changing the ownership of tomcat directory
       ansible.builtin.file:
         path: '{{ tomcat_home_path}}'
@@ -39,22 +52,20 @@
         recurse: yes
         group: '{{ tomcat_user }}'
         state: directory
+    - debug:
+        msg: "Ownership of tomcat directory changed to {{ tomcat_user }}"
     - name: Give Execute permissions to shell files in tomcat's bin directory
       ansible.builtin.file:
         path: "{{ item }}"
         mode: "+x"
       with_fileglob:
         - "{{ tomcat_home_path }}/latest/bin/*.sh"
-    - name: Copy a "sudoers" file on the remote machine for editing
+    - debug:
+        msg: "Copying tomcat.service file"
+    - name: Copy a "tomcat.service" file  to the node
       ansible.builtin.copy:
         src: tomcat.service.j2
         dest: "{{ tomcat_service_file_location }}"
-    - name: reload daemon
-      ansible.builtin.systemd:
-        name: tomcat
-        daemon_reload: yes
-        enabled: yes
-        state: started
     - name: Copy tomcat users file
       ansible.builtin.copy:
         src: tomcat-users.xml
@@ -67,3 +78,17 @@
       ansible.builtin.copy:
         src: hostmanager-file.xml
         dest: "{{ tomcat_hostmanager_app_file_location }}"
+      notify: 
+        - reload daemon
+  handlers:
+    - name: reload daemon
+      ansible.builtin.systemd:
+        name: tomcat
+        daemon_reload: yes
+        enabled: yes
+        state: started
+    - name: Extracting the tomcat
+      ansible.builtin.unarchive:
+        src: '{{ tomcat_download_location }}'
+        dest: '{{ tomcat_home_path }}'
+        remote_src: yes
