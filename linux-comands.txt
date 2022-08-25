@@ -1,13 +1,14 @@
+ssh username@publicip - To connect SSH port of the virtual machine
+sudo systemctl reboot - to reboot the system
 sftp username@publicip - To connect sftp to the remote virtual machine
-put -r "folder location"  - To uploda a folder from our system to remote virtual machine
+put -r "folder location"  - To upload a folder from our system to remote virtual machine
 put "file location" - To uploda a file from our system to remote virtual machine
 
 
 
 --------   Git Commands   ----------
-git clone "URL"
-
-git add .
-git init -b main
-git commit -m "Comments for added repository"
-git push origin main
+git clone "URL" - to download git repository into the remote machine
+git init -b main - initializing the main folder to the git repository
+git add .  - adding all the folder's and file's to commit changes
+git commit -m "Comments for added repository"  - commit changes to the repository with a comment
+git push origin main - push code to the main repository

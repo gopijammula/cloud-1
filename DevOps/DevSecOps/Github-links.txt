@@ -4,3 +4,4 @@ https://github.com/web3j/web3j-maven-plugin.git
 
 https://github.com/apache/maven-dependency-tree.git
 
+https://github.com/wvengen/proguard-maven-plugin.git
