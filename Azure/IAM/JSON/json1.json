@@ -1,7 +1,15 @@
 {
-    "name" : "Vinukonda",
-    "district" : "Palnadu",
-    "Area" : "Seethaiah Nagar",
-    "crops" : ["Mirchi" , "Rice" , "Sweet Corn"], 
-    "Spots" : ["Hill" , "Stupham" , "Highway Road"]
+    "properties": {
+        "roleName": " json Script 1 ",
+        "description": "Granting owner access but not stop VMs ",
+        "assignableScopes": [],
+        "permissions": [
+            {
+                "actions": ["*"],
+                "notActions": ["Microsoft.LabServices/labs/virtualMachines/stop/action"],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
 }
