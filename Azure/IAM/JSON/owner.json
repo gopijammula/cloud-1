@@ -1,0 +1,17 @@
+{
+    "properties": {
+        "assignableScopes": [],
+        "description": "Granting owner access ",
+        "permissions": [
+            {
+                "actions": [
+                    "*"
+                ],
+                "dataActions": [],
+                "notActions": [],
+                "notDataActions": []
+            }
+        ],
+        "roleName": " Owner Access "
+    }
+}

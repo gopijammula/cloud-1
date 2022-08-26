@@ -1,0 +1,34 @@
+{
+    "properties": {
+        "assignableScopes": [
+            "/subscriptions/2af0c947-2b17-481b-9a99-4984eeb2eb52"
+        ],
+        "description": "contributor permissions but user/group should not be able to delete",
+        "permissions": [
+            {
+                "actions": [
+                    "*"
+                ],
+                "dataActions": [],
+                "notActions": [
+                    "Microsoft.Authorization/*/Delete",
+                    "Microsoft.Authorization/*/Write",
+                    "Microsoft.Authorization/elevateAccess/Action",
+                    "Microsoft.Blueprint/blueprintAssignments/write",
+                    "Microsoft.Blueprint/blueprintAssignments/delete",
+                    "Microsoft.Compute/galleries/share/action",
+                    "Microsoft.Compute/virtualMachines/delete",
+                    "Microsoft.Compute/disks/delete",
+                    "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/delete",
+                    "Microsoft.Sql/servers/delete",
+                    "Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccounts/delete",
+                    "Microsoft.ContainerService/managedClusters/delete"
+                ],
+                "notDataActions": []
+            }
+        ],
+        "roleName": "Contributor Access execpt delete",
+        "roleType": "BuiltInRole",
+        "type": "Microsoft.Authorization/roleDefinitions"
+    }
+}

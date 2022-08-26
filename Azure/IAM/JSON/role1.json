@@ -1,0 +1,19 @@
+{
+    "properties": {
+        "assignableScopes": [],
+        "description": "Granting owner access but not stop VMs ",
+        "permissions": [
+            {
+                "actions": [
+                    "*"
+                ],
+                "dataActions": [],
+                "notActions": [
+                    "Microsoft.LabServices/labs/virtualMachines/stop/action"
+                ],
+                "notDataActions": []
+            }
+        ],
+        "roleName": "json Script 1 "
+    }
+}
