@@ -96,6 +96,12 @@ $secondary_to_primarypeer = 'secondary-to-secondary'
 Add-AzVirtualNetworkPeering -Name $secondary_to_primarypeer -VirtualNetwork $secondaryVnet -RemoteVirtualNetworkId $primaryVnet.Id
 
 
+#Trying to create Ubuntu Image Using Poweshell Command
+
+$Vm_Name = 'SonarCube'
+$Vm_Location = 'East Us'
+New-AzVM -ResourceGroupName $resource_group_name -Name $Vm_Name -Location $Vm_L
+
 #deleting resource group
 
 Remove-AzResourceGroup -Name 'ansible'
