@@ -1,5 +1,5 @@
 $resource_group_name = 'powershell'
-$resource_group_location = 'westus'
+$resource_group_location = 'eastus'
 
 # creating resource groups
 $rsg = New-AzResourceGroup -Name $resource_group_name -Location $resource_group_location
@@ -95,13 +95,74 @@ Add-AzVirtualNetworkPeering -Name $primarytosecondarypeer -VirtualNetwork $prima
 $secondary_to_primarypeer = 'secondary-to-secondary'
 Add-AzVirtualNetworkPeering -Name $secondary_to_primarypeer -VirtualNetwork $secondaryVnet -RemoteVirtualNetworkId $primaryVnet.Id
 
+# Create Debian Vm Using Powershell
 
-#Trying to create Ubuntu Image Using Poweshell Command
+$resource_group_name = 'ubuntu'
+$VM_Name = 'ubuntu' #Change Virtual Name before execute
+$Location = 'East Us'
+$Image = 'UbuntuLTS' #Change Image Name before execute 'UbuntuLTS' / 'Debian' / 'CentOs'
+$size = 'Standard_B2s'
+$Ip_Addr_Name = 'ubuntuPubIP'
+$Open_Port = 22
+$cred = Get-Credential
 
-$Vm_Name = 'SonarCube'
-$Vm_Location = 'East Us'
-New-AzVM -ResourceGroupName $resource_group_name -Name $Vm_Name -Location $Vm_L
+    New-AzVm `
+    -ResourceGroupName $resource_group_name `
+    -Name $VM_Name `
+    -Location $Location `
+    -Image $Image `
+    -size $size `
+    -PublicIpAddressName $Ip_Addr_Name `
+    -OpenPorts $Open_Port `
+    -Credential $cred
+
+
+# Create windows Image Using Powershell Command
+
+$cred = Get-Credential
+$wnds_VM_Name = 'wndsVM'
+$wnds_virtual_Network_Name = 'wndsVnet'
+$wnds_Public_IpAddress = 'wndsPublicIpAddress'
+$wnds_Subnet_Name = 'wndsSubnet'
+$wnds_Security_Group_Name = 'wndsSecurityGroup'
+
+
+New-AzVm `
+    -ResourceGroupName $resource_group_name `
+    -Name $wnds_VM_Name `
+    -Location "EastUS" `
+    -VirtualNetworkName $wnds_virtual_Network_Name `
+    -SubnetName $wnds_Subnet_Name `
+    -SecurityGroupName $wnds_Security_Group_Name `
+    -PublicIpAddressName  $wnds_Public_IpAddress `
+    -Credential $cred
 
 #deleting resource group
 
 Remove-AzResourceGroup -Name 'ansible'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+New-AzVm `
+    -ResourceGroupName 'ubuntu' `
+    -Name 'myVM' `
+    -Location 'East US' `
+    -Image UbuntuLTS `
+    -size Standard_B2s `
+    -PublicIpAddressName myPubIP `
+    -OpenPorts 22 `
+    -Credential Get-Credential `
+
+
+    Canonical:0001-com-ubuntu-server-focal:20_04-lts:latest

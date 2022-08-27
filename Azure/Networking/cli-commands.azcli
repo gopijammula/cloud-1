@@ -1,6 +1,6 @@
 #creating Resource Group
-$resource_group_name = 'fromcli'
-$resource_group_location = 'centralus'
+$resource_group_name = 'cli'
+$resource_group_location = 'eastus'
 $rsg = az group create -n $resource_group_name -l $resource_group_location
 
 #creating Virtual network without subnets
@@ -87,3 +87,32 @@ az network vnet peering create -g $resource_group_name -n $primarypeerconnection
 
 $secondarypeerconnection = 'secondarytoprimary'
 az network vnet peering create -g $resource_group_name -n $secondarypeerconnection --vnet-name $secondaryvirtualnetworkname --remote-vnet $primaryvirtualnetworkname
+
+# Create Ubuntu Virtual Machine
+
+$resource_group_name = 'cli'
+$Name = 'ubuntu' #Change Virtual Name before execute
+$Image = 'UbuntuLTS'  #Change Image Name before execute 'UbuntuLTS' / 'Debian' / 'CentOs'
+$username = 'ubuntu'
+$password = 'ubuntu@12345' # Minimum 12 chars with 1 cap and 1 special and 1 number
+az vm create `
+  --resource-group $resource_group_name `
+  --name $Name `
+  --image $Image `
+  --admin-username $username `
+  --admin-password $password
+
+
+# Create Windows Virtual Machine
+$resource_group_name = 'cli'
+$Name = 'wind' #Change Virtual Name before execute
+$Image = 'Win2022AzureEditionCore'
+$username = 'azureuser'
+$password = 'password@12345' # Minimum 12 chars with 1 cap and 1 special and 1 number
+az vm create `
+    --resource-group $resource_group_name `
+    --name $Name `
+    --image $Image `
+    --public-ip-sku Standard `
+    --admin-username $username `
+    --admin-password $password
