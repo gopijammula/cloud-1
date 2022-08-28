@@ -116,3 +116,8 @@ az vm create `
     --public-ip-sku Standard `
     --admin-username $username `
     --admin-password $password
+
+
+az vm deallocate -g sca -n security-test  # Deallocating the Virtual Machine
+
+az vm start -g sca -n security-test    # Starting Virtual Machine
