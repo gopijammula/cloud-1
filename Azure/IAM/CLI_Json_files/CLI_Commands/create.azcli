@@ -1,0 +1,30 @@
+### -----   Create Asignment Commands   ------ ###
+
+# Assign roles to the user in subscription level
+az role assignment create `
+--role "Owner Access subscription level" `
+--assignee "rajnikanth@praveendba31outlook.onmicrosoft.com"
+
+# Assign roles to the user in resource group level
+az role assignment create `
+--role "contributor"`
+--assignee "rajnikanth@praveendba31outlook.onmicrosoft.com" `
+--scope "/subscriptions/2af0c947-2b17-481b-9a99-4984eeb2eb52/resourceGroups" 
+
+# Assigns custom role to the group in the subscription level
+az role assignment create `
+--assignee c9fc37be-66f9-4b3d-9162-48ec469ab6bf `
+--role "owner" `
+--scope "/subscriptions/2af0c947-2b17-481b-9a99-4984eeb2eb52"
+
+# Assigns custom role to the group in the subscription level
+az role assignment create `
+--assignee c9fc37be-66f9-4b3d-9162-48ec469ab6bf `
+--role "owner" `
+--scope "/subscriptions/2af0c947-2b17-481b-9a99-4984eeb2eb52/resourceGroups" 
+
+
+### -----   Create Definition Commands   ------ ###
+
+# Create role definition
+az role definition create --role-definition "reader.json"

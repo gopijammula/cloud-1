@@ -1,0 +1,22 @@
+# Gives custom role definition json file
+az role definition list --name "Custom role name"  
+
+# Gives all the actions
+az role definition list `
+--name "Contributor Access execpt delete" `
+--output json --query '[].permissions[0].actions' 
+
+# Gives all the notActions
+az role definition list `
+--name "Contributor Access execpt delete" `
+--output json `
+--query '[].permissions[0].notActions'
+
+# Shows all the builtin roles name
+az role definition list `
+--output json `
+--query '[].roleName'
+
+# To show the json file of the contributor role
+az role definition list `
+--name "Contributor"

@@ -1,0 +1,6 @@
+### ------  Update Assignment Role  ----- ###
+az role assignment update --role-assignment assignment.json
+
+
+### ------  Update Definition Role  ----- ###
+az role definition update --role-definition definition.json

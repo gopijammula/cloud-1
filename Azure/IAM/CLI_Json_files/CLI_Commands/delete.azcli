@@ -1,0 +1,29 @@
+### -----   Delete Asignment Commands   ------ ###
+
+# Delete roles to the user in subscription level
+az role assignment delete `
+--role "Owner Access subscription level" `
+--assignee "rajnikanth@praveendba31outlook.onmicrosoft.com"
+
+# Delete roles to the user in resource group level
+az role assignment delete `
+--role "contributor"`
+--assignee "rajnikanth@praveendba31outlook.onmicrosoft.com" `
+--scope "/subscriptions/2af0c947-2b17-481b-9a99-4984eeb2eb52/resourceGroups"
+
+# Delete custom role to the group in the subscription level
+az role assignment delete `
+--assignee c9fc37be-66f9-4b3d-9162-48ec469ab6bf `
+--role "owner" `
+--scope "/subscriptions/2af0c947-2b17-481b-9a99-4984eeb2eb52" 
+
+# Delete custom role to the group in the subscription level
+az role assignment delete `
+--assignee c9fc37be-66f9-4b3d-9162-48ec469ab6bf `
+--role "owner" `
+--scope "/subscriptions/2af0c947-2b17-481b-9a99-4984eeb2eb52/resourceGroups" 
+
+
+### -----   Create Definition Commands   ------ ###
+
+az role definition delete --role-definition "reader.json"
