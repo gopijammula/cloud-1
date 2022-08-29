@@ -1,0 +1,12 @@
+{
+    "Name": "",
+    "IsCustom": true,
+    "Description": "",
+    "Actions": [],
+    "NotActions": [],
+    "DataActions": [],
+    "NotDataActions": [],
+    "AssignableScopes": [
+      "/subscriptions/2af0c947-2b17-481b-9a99-4984eeb2eb52}"
+    ]
+  }

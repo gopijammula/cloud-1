@@ -1,0 +1,14 @@
+{
+    "Actions": [
+        "*/read"
+    ],
+    "AssignableScopes": [
+        "/subscriptions/2af0c947-2b17-481b-9a99-4984eeb2eb52"
+    ],
+    "DataActions": [],
+    "Description": "Reader Access in subscriptions level",
+    "IsCustom": true,
+    "Name": "Reader Access subscription level",
+    "NotActions": [],
+    "NotDataActions": []
+}
