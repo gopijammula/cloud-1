@@ -95,7 +95,7 @@ Add-AzVirtualNetworkPeering -Name $primarytosecondarypeer -VirtualNetwork $prima
 $secondary_to_primarypeer = 'secondary-to-secondary'
 Add-AzVirtualNetworkPeering -Name $secondary_to_primarypeer -VirtualNetwork $secondaryVnet -RemoteVirtualNetworkId $primaryVnet.Id
 
-# Create Debian Vm Using Powershell
+# Create linux Vm Using Powershell
 
 $resource_group_name = 'ubuntu'
 $VM_Name = 'ubuntu' #Change Virtual Name before execute
@@ -136,33 +136,7 @@ New-AzVm `
     -SecurityGroupName $wnds_Security_Group_Name `
     -PublicIpAddressName  $wnds_Public_IpAddress `
     -Credential $cred
-
+    
 #deleting resource group
-
+    
 Remove-AzResourceGroup -Name 'ansible'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-New-AzVm `
-    -ResourceGroupName 'ubuntu' `
-    -Name 'myVM' `
-    -Location 'East US' `
-    -Image UbuntuLTS `
-    -size Standard_B2s `
-    -PublicIpAddressName myPubIP `
-    -OpenPorts 22 `
-    -Credential Get-Credential `
-
-
-    Canonical:0001-com-ubuntu-server-focal:20_04-lts:latest

@@ -122,6 +122,6 @@ az vm deallocate -g sca -n security-test  # Deallocating the Virtual Machine
 
 az vm start -g sca -n security-test    # Starting Virtual Machine
 
-az vm deallocate -g sca -n security-ubuntu  # Deallocating the Virtual Machine
+az vm deallocate -g sca -n ubuntu  # Deallocating the Virtual Machine
 
-az vm start -g sca -n security-ubuntu    # Starting Virtual Machine
+az vm start -g sca -n ubuntu    # Starting Virtual Machine
