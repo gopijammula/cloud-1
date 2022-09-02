@@ -1,3 +1,12 @@
+DevSecOps Scans 
+    * Network
+    * Os
+    * code
+    * Dependency
+    * Application
+    * Hardware
+
+
 Date: 18/08
 Mandatory scans in the devops CI/CD
     * Software Composition Analysis (SCA)
@@ -90,3 +99,61 @@ Date: 27/08
     # Copy any address and paste in the url and click on attack
     # After the scan is completed click on the create option and Select generate report
     # save the report
+
+Date: 28/08
+
+
+------* AWS ECR *----------
+    * This is a Elastic container repository to check all the docker images
+
+    * AWS Access keys generated to login in ubuntu 
+        Secret Access Key  -  72fUVD6VmBKDzWz+gsMpaaDmQineNPuShcpdZn3X
+        Access Key -  AKIAVG5C5SAHDQRF52JJ
+        * To get these credentials create an IAM user [Process https://sst.dev/chapters/create-an-iam-user.html] 
+
+    * Process of scaning docker images in AWS ECR
+        * Create a ubuntu server
+        * Make sure all the ports to the server is opened
+        * Connect to the server
+        * Run following commands
+    ```
+        sudo apt update
+        curl -fsSL https://get.docker.com -o get-docker.sh
+        sh get-docker.sh
+        sudo usermod -aG docker ubuntu # replace ubuntu with the server username
+        exit
+    * relogin
+        sudo apt install unzip
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        unzip awscliv2.zip
+        sudo ./aws/install
+        aws --version
+        aws configure
+        docker image pull tomcat:9
+    ```
+
+    * Now login to AWS Console and search for ECR
+    * Click on Create repository
+    * Create new and enable scan to push (Here it is test)
+    * Now Select the created repository and click on view push commands
+    * Copy and Execute the first command 
+    * Skip second command if you already have docker image installed (In this case we installed tomcat9)
+    * Edit third command replace test:latest with the docker image (In this case it is tomcat:9)
+    * Edit forth command replace test:latest with the docker image (In this case it is tomcat:9)
+
+--* To view scan report *--
+    * Open repository and click on image
+    * Click on details under the vulnerabilities to view the complete report
+
+
+Date: 01/09PII (Personally Identifiable Information) should not be stored in logs of your application.
+
+* Trusted Advisor
+    Default enabled in the account for  scans 
+* AWS Guard Duty
+    This gives option to block the ip_addresses 
+* AWS Macie:
+    - This service scans for sensitive content on the S3 buckets.
+    - PII (Personally Identifiable Information) should not be stored in logs
+        of your application.
+
