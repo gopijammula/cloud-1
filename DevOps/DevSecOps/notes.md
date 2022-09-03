@@ -1,4 +1,6 @@
-* DevSecOps Scans 
+# Detailed Notes for DevSecOps
+----------------------------------------------
+### DevSecOps Scans for vulnerabilities in
     * Network
     * Os
     * code
@@ -60,7 +62,7 @@
 * It takes time to Execute and the report generated will automatically shown in the portal
 * To scan another project create another in the portal 
 
-
+---------------------------------------------
 ### Date: 26/08
 ##### Vulnerability Databases
 * NVD (National Vulnerability Database)
@@ -68,7 +70,7 @@
     * To 20 vulnerabilities are listed
 * OWASP Top 10 
 * OWASP API Top 10
-
+----------------------------------------------
 ### Date: 27/08
 
 ##### OWASP Dependency check (SCA)
@@ -110,7 +112,7 @@
     ```
         http://public-ip/report_name.html
     ```
-    
+----------
 ##### OWASP ZAP (DAST)
 * This takes more time and do it in the server
 * install zap using chocolety
@@ -121,21 +123,20 @@
 * Copy any address and paste the url and click on attack
 * After the scan is completed click on the create option and Select generate report
 * save the report
-
+----------------------------------------------------------
 ### Date: 28/08
 ##### AWS ECR
 * This is a Elastic container repository to check all the vulnerabilitiesin  docker images
 * AWS Access keys generated to login in ubuntu 
     * Secret Access Key  -  72fUVD6VmBKDzWz+gsMpaaDmQineNPuShcpdZn3X
     * Access Key -  AKIAVG5C5SAHDQRF52JJ
-* To get these credentials create an IAM user [Process https://sst.dev/chapters/create-an-iam-user.html] 
+* To get these credentials create an IAM user [Refer Here](https://sst.dev/chapters/create-an-iam-user.html)
 
 * Process of scaning docker images in AWS ECR
     * Create a ubuntu server
     * Make sure all the ports to the server is opened
     * Connect to the server
     * Run following commands
-
     ```
         sudo apt update
         curl -fsSL https://get.docker.com -o get-docker.sh
@@ -166,8 +167,7 @@
 * To view scan report
     * Open repository and click on image
     * Click on details under the vulnerabilities to view the complete report
-
-
+------------------------------------------------------------------------------
 ### Date: 01/09
 * Trusted Advisor
     * Default enabled in the account for  scans 
