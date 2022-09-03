@@ -72,7 +72,7 @@ Date: 27/08
     unzip ~/dependency-check-7.1.2-release.zip
     cd dependency-check
     ```
-    
+
     # replace the url with the dependency you want to scan
     git clone https://github.com/wakaleo/game-of-life.git  
     
@@ -105,6 +105,7 @@ Date: 28/08
 
 
 ------* AWS ECR *----------
+
     * This is a Elastic container repository to check all the docker images
 
     * AWS Access keys generated to login in ubuntu 
@@ -142,12 +143,12 @@ Date: 28/08
     * Edit third command replace test:latest with the docker image (In this case it is tomcat:9)
     * Edit forth command replace test:latest with the docker image (In this case it is tomcat:9)
 
---* To view scan report *--
-    * Open repository and click on image
-    * Click on details under the vulnerabilities to view the complete report
+    * To view scan report
+    - Open repository and click on image
+    - Click on details under the vulnerabilities to view the complete report
 
 
-Date: 01/09PII (Personally Identifiable Information) should not be stored in logs of your application.
+Date: 01/09
 
 * Trusted Advisor
     Default enabled in the account for  scans 
