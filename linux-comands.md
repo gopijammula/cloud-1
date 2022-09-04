@@ -1,37 +1,69 @@
 ### Linux Commands
 * To connect SSH port of the virtual machine
-```ssh username@publicip ```
+```
+    ssh username@publicip 
+```
 * To reboot the system
-``` sudo systemctl reboot ```
+```
+    sudo systemctl reboot
+```
 * To connect sftp to the remote virtual machine
-``` sftp username@publicip ```
+```
+    sftp username@publicip
+```
 * To upload a folder from our system to remote virtual machine
-``` put -r "folder location"  ```
+```
+    put -r "folder location" 
+```
 * To uploda a file from our system to remote virtual machine
-``` put "file location" ```
+```
+    put "file location"
+```
 * To upload a folder from our system to remote virtual machine
-``` get -r "folder location"  ```
+```
+    get -r "folder location" 
+```
 * To uploda a file from our system to remote virtual machine
-``` get "file location" ``` 
+```
+    get "file location"
+``` 
 * To get the current path of the directory
-``` pwd ```
+```
+    pwd
+```
 * To get the list of all the items in the folder
-``` ls ```
+```
+    ls
+```
 * To create an empty folder
-``` cd folder_Name ```
+```
+    cd folder_Name
+```
 * To create an empty folder with space between name "folder name" 
-``` cd folder\ name ```
+```
+    cd folder\ name
+```
 * To remove a folder
-``` rm -r folder_Name ```
+```
+    rm -r folder_Name
+```
 * To remove a folder with space between name
-``` rm -r folder\ name```
+```
+    rm -r folder\ name
+```
 * To create empty file 
-``` touch file_name ```
+```
+    touch file_name
+```
 * To remove file
-``` rm file_name ```
+```
+    rm file_name
+```
 * To copy the files from one path to another
     * The first path is the current file path and second one is the destination path
-``` cp current _file_name destination ```
+```
+    cp current _file_name destination
+```
 * To move the files from one path to another
     * The first path is the current file path and second one is the destination path
     * This will rename the file name if moved to same directory
