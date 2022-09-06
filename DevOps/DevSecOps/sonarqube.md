@@ -3,7 +3,10 @@
     sudo apt update
     curl -fsSL https://get.docker.com -o get-docker.sh
     sh get-docker.sh
-    sudo usermod -aG docker ubuntu # replace your ubuntu with the current user
+```
+* replace your ubuntu with the current user
+```
+    sudo usermod -aG docker ubuntu 
     exit
 ```
 * Commands to install sonarqube using docker
