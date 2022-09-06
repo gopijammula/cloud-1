@@ -15,4 +15,4 @@
 cd  ~/
 ```
 * Again download another git repository to the system
-* follow
+* follow the process again from creating new project
