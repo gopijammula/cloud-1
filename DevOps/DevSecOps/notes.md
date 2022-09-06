@@ -28,8 +28,9 @@
 ### Date: 21/08
 
 * Sonarqube for testing SAST (testing code for vulnerabilities)
-######  Installing docker in ubuntu
-* Make sure all the port are opened    
+###  Installing docker in ubuntu
+  * Make sure all the port to the virtual machine are opened
+    * Execute the following commands to install docker
     ``` 
         sudo apt update
         curl -fsSL https://get.docker.com -o get-docker.sh
