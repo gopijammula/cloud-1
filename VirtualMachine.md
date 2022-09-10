@@ -19,9 +19,11 @@
 ![preview](./Images/VM9.png)
 -----------------------
 ### To Stop or Restart or Start VM
+---------------------------------
 ![preview](./Images/VM10.png)
 -----------------------
 ### To Add Inbount rule for networking
+--------------------------------------
 ![preview](./Images/VM11.png)
 ---------------------------------
 ![preview](./Images/VM12.png)
