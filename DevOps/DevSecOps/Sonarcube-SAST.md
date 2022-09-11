@@ -29,6 +29,7 @@ sh get-docker.sh
 ```
 sudo usermod -aG docker ubuntu
 ```
+> **_NOTE:_** Edit the docker in the above command to your current username
 * Exit and relogin to the system
 ```
 exit
