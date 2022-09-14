@@ -111,7 +111,7 @@
 ```
 git add .
 ```
-* Now lets check the status of the repository.
+* Now lets check the status of the git repository.
 ![preview](./Images/github7.png)
 * Now the changes has added to the staging area.
 
