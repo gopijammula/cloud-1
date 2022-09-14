@@ -34,6 +34,10 @@ sudo usermod -aG docker ubuntu
 ```
 exit
 ```
+* lets convert to the root user to install sonarqube.
+```
+sudo -i
+```
 To check the docker Installed
 ```
 docker info
