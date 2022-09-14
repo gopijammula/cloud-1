@@ -123,7 +123,7 @@ git add .
   echo '#Adding content' > readme.md
   ```
 * Now lets check the status of the repository `git status`.
-![preview](./Images/github8.png)
+* ![preview](./Images/github8.png)
 * Now we had a modified file needed to add to the staging area.
 
 # Commit changes to the local repository
