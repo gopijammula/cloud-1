@@ -1,6 +1,5 @@
 Merging git branches
 --------------------------
-## Merging Git branches
 * Lets Create a branch `branch1`.
 ![preview](./Images/github30.png)
 * We have two branches `branch1` `branch2`.
