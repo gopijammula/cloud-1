@@ -42,7 +42,7 @@ git merge branch1 --no-ff
 > 
 > We can fastforward only if we didn't have any commits in the master branch after the branch1 has created.
 
-## Merge
+### Merge
 ---------------------------
 * Now lets create some changes in the `master` branch and commit those changes.
 ```
