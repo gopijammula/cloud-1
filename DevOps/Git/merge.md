@@ -8,6 +8,7 @@ Merging git branches
   * Fast Forward
   * Merge 
 ### Fast Forward
+---------------------------
 * To merge the `branch1` with `master` its enough if the head is looking towards the `master` branch.
 * Now lets merge the `branch1` with `master` branch.
 * To merge we neeg to checkout to the `master`.
@@ -42,6 +43,7 @@ git merge branch1 --no-ff
 > We can fastforward only if we didn't have any commits in the master branch after the branch1 has created.
 
 ## Merge
+---------------------------
 * Now lets create some changes in the `master` branch and commit those changes.
 ```
 touch merge.py
