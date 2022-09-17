@@ -131,7 +131,7 @@ git push origin master
 ![preview](./Images/github79.png)
 * Now we have push the local commits to the remote repository after resolving the conflict.
 --------------------------------------
-### Example with conflict
+### Example without conflict
 * Now we have same commits in the local and remote repository.
 * Now lets add two different files in the loacl and remote repositories and commit.
 * Lets add local.py file in the local repository and commit.
