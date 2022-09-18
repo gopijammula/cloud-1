@@ -179,3 +179,50 @@ git status
 ```
 ![preview](./Images/github111.png)
 * Here we have added a `.py` file but the git didn't track this file because we added `*.py` in our .ignore file.
+-------------------------------------
+# Recover Deleted commit
+-------------------------
+* Lets say we have deleted a commit unfortunately and we need to recover it.
+* The git by default maintains an extra log file `reflog`.
+* There we can get all the merged, deleted, changes of the commits belongs to the repository.
+* To recover those commits we use cherry-pick and the commit id of the deleted commit `git cherry-pick <commit-id>`
+##### Example
+* Lets create a folder `recover` and make it a git repository.
+* Now lets add two commits to the repository.
+```
+mkdir recover
+cd recover
+git init
+touch 1.py 2.py
+git add 1.py
+git commit -m "1.py"
+git add 2.py
+git commit -m "2.py"
+```
+![preview](./Images/github112.png)
+* Now lets delete the recent commit.
+```
+git rebase -i HEAD~1
+```
+> **_NOTE:_** To start insert into the editor press `i`.
+> 
+> * To save and exit the changes press `esc` and enter `:wq`.
+>
+> * To exit without saving the changes press `esc` and enter `:q!`.
+
+![preview](./Images/github113.png)
+![preview](./Images/github114.png)
+* Now we have deleted the commit `Added 2.py`.
+* Now lets check the reflog for the commit id.
+```
+git reflog
+```
+![preview](./Images/github115.png)
+* Now copy the id of the commit and cherry-pick the commit `git cherry-pick <id-of-the-deleted-commit>`.
+```
+git cherry-pick 3bedb0f
+git log --oneline
+ls
+```
+![preview](./Images/github116.png)
+* We have recovered the file and commit we have deleted.
