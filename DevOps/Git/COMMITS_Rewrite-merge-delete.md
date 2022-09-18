@@ -140,3 +140,42 @@ git rebase -i HEAD~1
 ![preview](./Images/github103.png)
 * Now we have deleted the commit. So lets check the log of the commits.
 ![preview](./Images/github104.png)
+---------------------
+### Git Ignore
+-------------------
+* We might have some folders or files which we don't wanted them to be commit every time we change them.
+* While the devolopers are building some code they use dependencies.
+* Those dependencies should not be part of our repository.
+* We might get many unwanted files which are created by different softwares and we want them to be ignored by the `git`.
+* So to ignore those files we need a .gitignore file.
+##### Example: 
+* Lets create a folder `ignore` and make it as a repository.
+* Now lets create a .gitigore file and say ignore all the python file.
+```
+mkdir ignore
+cd ignore
+git init
+echo "*.py" > .gitignore
+```
+![preview](./Images/github108.png)
+* Now lets check the status of the repository.
+```
+git status
+```
+![preview](./Images/github109.png)
+* Now lets add and commit this `.gitignore` file.
+```
+git add .
+git commit -m "Added .gitignore file"
+git status
+```
+![preview](./Images/github110.png)
+* Now we can see that the working tree is clean.
+* Now lets add a `.py` file and check the status of the working tree.
+```
+touch ignore.py
+ls
+git status
+```
+![preview](./Images/github111.png)
+* Here we have added a `.py` file but the git didn't track this file because we added `*.py` in our .ignore file.
