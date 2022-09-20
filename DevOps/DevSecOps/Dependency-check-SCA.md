@@ -24,6 +24,9 @@ wget https://github.com/jeremylong/DependencyCheck/releases/download/v7.1.2/depe
 ```
 * We had downloaded a zip file to the server but to extract the zip file we need unzip package installed in the server
 * Lets's install unzip
+```
+sudo apt install unzip
+```
   * Before executing the below command replace "7.1.2" with the downloaded version
 ```
 unzip ~/dependency-check-7.1.2-release.zip
