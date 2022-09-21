@@ -46,6 +46,7 @@ git clone https://github.com/wakaleo/game-of-life.git
 * It's better to save in the downloaded project folder
   * If you have created new folder to save all the reports, then replace "game-of-life" with your folder name in the below command
 ```
+cd ~
 cd game-of-life
 ```
 * Replace ~/game-of-life/ with the downloaded project folder name where the pom.xml file is presented
