@@ -13,9 +13,8 @@
 * Now Create a Ubuntu Virtual Machine `Jenkins`.
 > **_NOTE:_** Select `jenkinsVnet` - `JenkinsSubnet` - `JenkinsNSG` while creating VM.
 ![preview](./Images/Jenkins3.png)
-* Connect to the Virtual Machine `ssh username@ipaddress`.
------------------------------
-### Install Jenkins in Master
+* Connect to the Virtual Machine `ssh username@ipaddress`.<br  ><br  ><br  ><br  >
+# Install Jenkins in Master <br  ><br  ><br  >
 ------------------------------
 * Get the system update.
 ```
@@ -76,8 +75,8 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ![preview](./Images/Jenkins11.png)
 * This is how the UI of the Jenkins looks like.
 ![preview](./Images/Jenkins12.png)
-----------------------------------
-### Creating first sample project
+<br  ><br  ><br  ><br  ><br  >
+### Creating first sample project<br  ><br  >
 -----------------------------
 * Lets create a new project in the jenkins `first job`.
 ![preview](./Images/Jenkins13.png)
@@ -120,8 +119,8 @@ jenkins ALL=(ALL:ALL) NOPASSWD:ALL
 ![preview](./Images/Jenkins23.png)
 ![preview](./Images/Jenkins24.png)
 * Now the build has success.
-----------------------------------
-### Lets build a project
+<br  ><br  ><br  ><br  ><br  >
+# Lets build a project<br  ><br  ><br  >
 ------------------------
 * Lets go back to the dashboard.
 ![preview](./Images/Jenkins25.png)
