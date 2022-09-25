@@ -76,4 +76,4 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 * This is how the UI of the Jenkins looks like.
 ![preview](./Images/Jenkins12.png)
 * To run a sample project [Refer Here](sample-project-in-master.md.md)
-* To run spring pet clinic project [Refer Here](spring-pet-clinic-node.md)
+* To run spring pet clinic project [Refer Here](project-using-commands-node.md)
