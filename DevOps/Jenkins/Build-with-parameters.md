@@ -78,3 +78,4 @@ steps{
 ![preview](./Images/Jenkins155.png)
 ![preview](./Images/Jenkins156.png)
 * The build was successful.
+* For running same project on node [Refer Here](..\declarative-scripts\spring-petclinic-with-parameters.md).
