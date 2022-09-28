@@ -2,9 +2,7 @@
 ``` groovy
 node {
     stage('vcs') {
-        git
-            branch: 'master',
-            url: 'https://github.com/wakaleo/game-of-life.git'
+        git 'https://github.com/wakaleo/game-of-life.git'
     }
     stage('build') {
         sh 'mvn package'
@@ -16,9 +14,7 @@ node {
 ``` groovy
 node('JAVA') {
     stage('vcs') {
-        git
-        branch: 'master',
-        url: 'https://github.com/wakaleo/game-of-life.git'
+        git 'https://github.com/wakaleo/game-of-life.git'
     }
     stage('build') {
         sh 'mvn package'
