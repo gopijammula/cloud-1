@@ -34,6 +34,16 @@ stage('build') {
     }
 ```
 ![preview](./Images/Jenkins135.png)
+``` groovy
+node('JAVA') {
+    stage('vcs') {
+    git branch: 'main', url: 'https://github.com/spring-projects/spring-petclinic.git'
+}
+stage('build') {
+    sh 'mvn package'
+}
+}
+```
 * Now lets build the project.
 ![preview](./Images/Jenkins136.png)
 * The build was successful.
