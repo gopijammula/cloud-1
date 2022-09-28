@@ -2,6 +2,9 @@
 ``` groovy
 pipeline{
     agent any
+    environment {
+        JAVA_HOME = "/usr/lib/jvm/java-8-openjdk-amd64"
+    }
     stages{
         stage ('git clone'){
             steps{
@@ -22,6 +25,9 @@ pipeline{
 pipeline{
     agent {
         node 'JAVA'
+    }
+    environment {
+        JAVA_HOME = "/usr/lib/jvm/java-8-openjdk-amd64"
     }
     stages{
         stage ('git clone'){
