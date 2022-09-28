@@ -5,8 +5,7 @@ pipeline{
     stages{
         stage ('git clone'){
             steps{
-                git url: 'https://github.com/wakaleo/game-of-life.git',
-                branch: 'master'
+                git url: 'https://github.com/wakaleo/game-of-life.git'
             }
         }
         stage ('package'){
@@ -27,8 +26,7 @@ pipeline{
     stages{
         stage ('git clone'){
             steps{
-                git url: 'https://github.com/wakaleo/game-of-life.git',
-                branch: 'master'
+                git url: 'https://github.com/wakaleo/game-of-life.git'
             }
         }
         stage ('package'){
