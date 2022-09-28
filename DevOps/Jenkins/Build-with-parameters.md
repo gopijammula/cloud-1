@@ -36,7 +36,7 @@ https://github.com/spring-projects/spring-petclinic.git
 ![preview](./Images/Jenkins153.png)
 ![preview](./Images/Jenkins154.png)
 * Now we know the script to build the Declarative pipeline script.
-* [Refer Here](../declarative-scripts/spring-pet-clinic-without-parameters.md)
+* [Refer Here](declarative-scripts/spring-pet-clinic-without-parameters.md)
 * Now we need to add some parameters to this project.
 * [Refer Here](https://www.jenkins.io/doc/book/pipeline/syntax/#parameters) for the syntax to use parameters.
 * The parameters should writte at the level of agents and stages.
@@ -73,9 +73,9 @@ steps{
 }
 ```
 * Now the declaration of the parameters has completed and our pipeline script is ready to ececute.
-* For the pipeline developed [Refer Here](..\declarative-scripts\spring-petclinic-with-parameters.md).
+* For the pipeline developed [Refer Here](declarative-scripts/spring-petclinic-with-parameters.md).
 * Now lets add the pipeline to the project and build the project.
 ![preview](./Images/Jenkins155.png)
 ![preview](./Images/Jenkins156.png)
 * The build was successful.
-* For running same project on node [Refer Here](../declarative-scripts/spring-petclinic-with-parameters.md).
+* For running same project on node [Refer Here](declarative-scripts/spring-petclinic-with-parameters.md).
