@@ -75,4 +75,4 @@ http://<ip-address>:8080
 ![preview](./Images/Jenkins73.png)
 ![preview](./Images/Jenkins74.png)
 ------------------------
-* To run project in node  [Refer Here](project-using-commands-node.md)
+* To run project in node  [Refer Here](freestyle/project-using-commands-node.md)
