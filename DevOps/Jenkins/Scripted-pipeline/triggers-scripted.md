@@ -1,6 +1,9 @@
 # Poll SCM with scripted pipeline
 ---------------------------------
 * Create pipeline project.
+* PollScm is different from triggers.
+* Pollscm will trigger only when new commits are noticed in the repository.
+* But trigger will build irrespective of any other.
 * Now lets build the steps to configure the triggers.
 * We have the basic syntax for the scripted pipeline.
 ```groovy
@@ -11,7 +14,7 @@ node {
 }
 ```
 * For now lets trigger build for every minute.
-* For the triggers completye configuration [Refer Here](https://www.jenkins.io/doc/book/pipeline/syntax/#triggers).
+* For the triggers complete configuration [Refer Here](https://issues.jenkins.io/browse/JENKINS-49502).
 ```groovy
 properties([pipelineTriggers([cron('* * * * *')])])
 ```
@@ -33,6 +36,9 @@ node {
 * Now another build has started.
 ![preview](./Images/sp4.png)
 * We can see that the build was started by the timer.
+* Also when we build for the first time manually then only the poll scm will trigger.
+![preview](./Images/sp5.png)
+* The triggers has set automatically.
 ------------------------------------------------------
 # To run this on node execute the below script.
 * Replace `JAVA` in the below node label with your node label.
