@@ -33,7 +33,7 @@ pipeline {
         cron('* * * * *')
     }
     stages {
-        stage('syntax') {
+        stage('trigger') {
             steps {
                 sh ' echo "I will get build every minute" '
             }
@@ -65,7 +65,7 @@ pipeline {
         cron('* * * * *')
     }
     stages {
-        stage('syntax') {
+        stage('trigger') {
             steps {
                 sh ' echo "I will get build every minute" '
             }
