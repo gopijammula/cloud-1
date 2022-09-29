@@ -14,7 +14,7 @@ node {
 }
 ```
 * For now lets trigger build for every minute.
-* For the triggers complete configuration [Refer Here](https://issues.jenkins.io/browse/JENKINS-49502).
+* For the triggers complete configuration [Refer Here](https://issues.jenkins.io/browse/JENKINS-49502) cron.
 ```groovy
 properties([pipelineTriggers([cron('* * * * *')])])
 ```
