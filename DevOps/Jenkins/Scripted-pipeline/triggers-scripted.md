@@ -49,3 +49,4 @@ node ('JAva') {
         sh ' echo "I will get build every minute" '
     }
 }
+```
