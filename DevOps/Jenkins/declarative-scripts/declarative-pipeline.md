@@ -39,10 +39,10 @@ pipeline {
 ```
 * Now lets build spring petclinic project using declarative pipeline.
 * Install jenkins and connect to the portal.
-* If you don't know how to install and connect to jenkins  [Refer Here](jenkins-Install.md).
+* If you don't know how to install and connect to jenkins  [Refer Here](../jenkins-Install.md).
 * Now we lets build a project for declarative pipeline.
-![preview](./Images/Jenkins137.png)
-![preview](./Images/Jenkins138.png)
+![preview](../Images/Jenkins137.png)
+![preview](../Images/Jenkins138.png)
 * Now we have to write the pipeline for building project.
 * At first we have to clone git repository.
 ```groovy
@@ -76,9 +76,9 @@ pipeline{
 }
 ```
 * We have written the declarative pipeline code to build our project.
-![preview](./Images/Jenkins139.png)
+![preview](../Images/Jenkins139.png)
 * Now lets build the project.
-![preview](./Images/Jenkins140.png)
-![preview](./Images/Jenkins141.png)
-![preview](./Images/Jenkins142.png)
+![preview](../Images/Jenkins140.png)
+![preview](../Images/Jenkins141.png)
+![preview](../Images/Jenkins142.png)
 * The build has successful using declarative pipeline.
