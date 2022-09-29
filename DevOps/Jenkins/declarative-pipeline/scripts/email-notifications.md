@@ -1,3 +1,5 @@
+# To run this script on master
+----------------------------
 ``` groovy
 pipeline{
     agent any
