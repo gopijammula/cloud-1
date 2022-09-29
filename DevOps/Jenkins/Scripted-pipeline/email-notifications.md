@@ -84,7 +84,7 @@ node {
     }
 }
 ```
-* This script will send email when the email has started and when build failed.
+* This script will send email when the build has started and when build failed.
 * Now lets add this to the pipeline project and build.
 ![preview](./Images/sp18.png)
 ![preview](./Images/sp19.png)
@@ -134,4 +134,3 @@ node {
 -------------------------------------------
 # To run the same script in node
 * Add the `node('LABEL') { stages }` in the above script.
-* 
