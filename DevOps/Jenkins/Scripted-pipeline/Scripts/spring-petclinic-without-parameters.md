@@ -2,9 +2,7 @@
 ``` groovy
 node {
     stage('vcs') {
-        git
-            branch: 'main',
-            url: 'https://github.com/spring-projects/spring-petclinic.git'
+        git branch: 'main', url: 'https://github.com/spring-projects/spring-petclinic.git'
     }
     stage('build') {
         sh 'mvn package'
@@ -16,9 +14,7 @@ node {
 ``` groovy
 node('JAVA') {
     stage('vcs') {
-        git
-        branch: 'main',
-        url: 'https://github.com/spring-projects/spring-petclinic.git'
+        git branch: 'main', url: 'https://github.com/spring-projects/spring-petclinic.git'
     }
     stage('build') {
         sh 'mvn package'
